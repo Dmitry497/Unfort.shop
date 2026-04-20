@@ -1,0 +1,433 @@
+/* modals.css - все модальные окна */
+
+/* Модалка избранного */
+.favorite-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.favorite-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.favorite-modal {
+    position: fixed;
+    top: 0;
+    right: -560px;
+    width: 560px;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 1150;
+    transition: right 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+}
+
+.favorite-modal.active {
+    right: 0;
+}
+
+.favorite-modal__inner {
+    padding: 40px;
+    width: 480px;
+    height: calc(100vh - 80px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.1s;
+}
+
+.favorite-modal.active .favorite-modal__inner {
+    opacity: 1;
+}
+
+.favorite-modal__close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    color: #333;
+    transition: all 0.3s ease;
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+}
+
+.favorite-modal__close::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    cursor: pointer;
+}
+
+.favorite-modal.active .favorite-modal__close {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.favorite-modal__title {
+    font-family: 'Kinetika', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    text-align: left;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.3s ease 0.15s;
+}
+
+.favorite-modal.active .favorite-modal__title {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.favorite-modal__items {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.3s ease 0.2s;
+    padding-right: 5px;
+}
+
+.favorite-modal.active .favorite-modal__items {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.favorite-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.favorite-item__image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    flex-shrink: 0;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.favorite-item__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.favorite-item__title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.favorite-item__size {
+    font-size: 12px;
+    color: #666;
+}
+
+.favorite-item__price {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+}
+
+.favorite-item__remove {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+    color: #999;
+    align-self: center;
+    flex-shrink: 0;
+    transition: color 0.2s;
+}
+
+.favorite-item__remove:hover {
+    color: #ff4d4f;
+}
+
+/* Модалка приветствия */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1200;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.welcome-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.welcome-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 90%;
+    background-color: #fff;
+    z-index: 1250;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.welcome-modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.welcome-modal__inner {
+    position: relative;
+    padding: 30px;
+    text-align: center;
+    pointer-events: auto;
+}
+
+.welcome-modal__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #222;
+    z-index: 1260;
+    pointer-events: auto !important;
+}
+
+.welcome-modal__image {
+    width: 100%;
+    margin-bottom: 20px;
+    pointer-events: none;
+}
+
+.welcome-modal__image img {
+    max-width: 100%;
+    height: auto;
+    pointer-events: none;
+}
+
+.welcome-modal__title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #222;
+    pointer-events: none;
+}
+
+.welcome-modal__description {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #666;
+    pointer-events: none;
+}
+
+.welcome-modal__list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    pointer-events: none;
+}
+
+.welcome-modal__list li {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+    pointer-events: none;
+}
+
+.welcome-modal__button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    transition: background 0.2s;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.welcome-modal__button:hover {
+    background: #333;
+}
+
+/* Модалка Долями */
+.installment-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.installment-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.installment-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: 90%;
+    background: #fff;
+    border-radius: 20px;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.installment-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.installment-modal__inner {
+    padding: 24px;
+}
+
+.installment-modal__title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-family: 'Kinetika', sans-serif;
+}
+
+.installment-modal__subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.installment-modal__features {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.installment-modal__feature {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    background: #f8f8f8;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.installment-modal__feature svg {
+    width: 20px;
+    height: 20px;
+}
+
+.installment-modal__payments {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.installment-modal__payment-item {
+    flex: 1;
+    text-align: center;
+    padding: 12px 8px;
+    background: #f8f8f8;
+    border-radius: 12px;
+}
+
+.installment-modal__payment-date {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 6px;
+}
+
+.installment-modal__payment-amount {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+}
+
+.installment-modal__note {
+    font-size: 11px;
+    color: #999;
+    text-align: center;
+    padding-top: 16px;
+    border-top: 1px solid #eee;
+}
+
+.installment-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+}
+
+.installment-modal__close:hover {
+    color: #000;
+}

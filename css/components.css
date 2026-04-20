@@ -1,0 +1,132 @@
+/* components.css - тосты, прелоадер, скролл */
+
+/* Тост */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Kinetika', sans-serif;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1300;
+    padding: 12px 24px;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Прелоадер */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1.3s, visibility 2.5s;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader__content {
+    width: 200px;
+    height: auto;
+    display: block;
+}
+
+.preloader__content img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Стили для скролла */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #794343;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #333;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #0f0f0f #f1f1f1;
+}
+
+.fullscreen-modal::-webkit-scrollbar {
+    width: 6px;
+}
+
+.fullscreen-modal::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.fullscreen-modal::-webkit-scrollbar-thumb {
+    background: #0f0f0f;
+    border-radius: 10px;
+}
+
+.product-detail__gallery-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+
+.product-detail__gallery-scroll::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 4px;
+}
+
+.product-detail__gallery-scroll::-webkit-scrollbar-thumb {
+    background: #0f0f0f;
+    border-radius: 4px;
+}
+
+.favorite-modal__items::-webkit-scrollbar,
+#cartModal .cart-modal__items::-webkit-scrollbar {
+    width: 4px;
+}
+
+.favorite-modal__items::-webkit-scrollbar-track,
+#cartModal .cart-modal__items::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 4px;
+}
+
+.favorite-modal__items::-webkit-scrollbar-thumb,
+#cartModal .cart-modal__items::-webkit-scrollbar-thumb {
+    background: #0f0f0f;
+    border-radius: 4px;
+}

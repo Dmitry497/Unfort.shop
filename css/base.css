@@ -1,0 +1,28 @@
+/* base.css - базовые стили */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Kinetika', 'Montserrat', sans-serif;
+    background: #fff;
+}
+
+.main-content {
+    flex: 1 0 auto;
+    padding-top: 80px;
+}
+
+/* Убираем тень у header, когда открыта модалка */
+body:has(.welcome-overlay.active) .header,
+body:has(.header__menu--open) .header,
+body:has(.favorite-overlay.active) .header {
+    box-shadow: none;
+}

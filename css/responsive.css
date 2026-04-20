@@ -1,0 +1,159 @@
+/* responsive.css - адаптивные стили */
+
+/* Футер */
+@media (max-width: 992px) {
+    .footer__container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer__left {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .footer__nav-group {
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer__logo-img {
+        max-width: 260px;
+    }
+    .footer__social {
+        width: 48px;
+        height: 48px;
+    }
+    .footer__social img {
+        width: 26px;
+        height: 26px;
+    }
+    
+    /* Модалка корзины */
+    #cartModal {
+        width: 100%;
+        right: -100%;
+    }
+    
+    #cartModal .cart-modal__inner {
+        width: calc(100% - 40px);
+        padding: 20px;
+        height: calc(100vh - 40px);
+    }
+    
+    #cartModal .cart-modal__close {
+        top: 20px;
+        right: 20px;
+        font-size: 32px;
+    }
+    
+    #cartModal .cart-modal__title {
+        font-size: 20px;
+    }
+    
+    /* Полноэкранный режим */
+    .fullscreen-modal__image {
+        max-width: 95%;
+        max-height: 85%;
+    }
+    
+    .fullscreen-modal__close {
+        width: 36px;
+        height: 36px;
+        font-size: 24px;
+        top: 15px;
+        right: 15px;
+    }
+    
+    .fullscreen-modal__arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    }
+    
+    .fullscreen-modal__arrow--prev {
+        left: 10px;
+    }
+    
+    .fullscreen-modal__arrow--next {
+        right: 10px;
+    }
+    
+    .fullscreen-modal__image.zoomed {
+        transform: scale(1.8);
+    }
+}
+
+@media (max-width: 480px) {
+    .footer__logo-img {
+        max-width: 220px;
+    }
+    .footer__social {
+        width: 44px;
+        height: 44px;
+    }
+    .footer__social img {
+        width: 24px;
+        height: 24px;
+    }
+    .footer__link,
+    .footer__email {
+        font-size: 12px;
+    }
+    
+    /* Модалка корзины */
+    #cartModal .cart-modal__inner {
+        padding: 15px;
+        width: calc(100% - 30px);
+        height: calc(100vh - 30px);
+    }
+    
+    #cartModal .cart-modal__close {
+        top: 15px;
+        right: 15px;
+        font-size: 28px;
+    }
+    
+    #cartModal .cart-modal__title {
+        font-size: 18px;
+    }
+    
+    /* Полноэкранный режим */
+    .fullscreen-modal__image {
+        max-width: 98%;
+        max-height: 80%;
+    }
+    
+    .fullscreen-modal__close {
+        width: 32px;
+        height: 32px;
+        font-size: 20px;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .fullscreen-modal__arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+    }
+    
+    .fullscreen-modal__image.zoomed {
+        transform: scale(1.5);
+    }
+    
+    /* Карточки товаров */
+    .cart-item {
+        gap: 10px;
+    }
+    
+    .cart-item__image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .cart-item__title {
+        font-size: 13px;
+    }
+}

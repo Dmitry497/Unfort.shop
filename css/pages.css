@@ -1,0 +1,160 @@
+/* pages.css - страницы: доставка, о нас, поддержка, коллекции */
+
+/* Страница коллекций */
+.collections-nav {
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
+}
+
+.collections-nav__container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.collections-nav__btn {
+    background: none;
+    border: none;
+    font-family: 'Kinetika', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+    cursor: pointer;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.collections-nav__btn:hover {
+    color: #000;
+}
+
+.collections-nav__btn.active {
+    color: #000;
+    font-weight: 600;
+}
+
+.collections-nav__btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
+
+.collections-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    font-family: 'Kinetika', sans-serif;
+    font-size: 18px;
+    color: #999;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+/* Страница доставки */
+.delivery-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.delivery-page__title {
+    font-family: 'Kinetika', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+/* Страница о нас */
+.about-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.about-page__title {
+    font-family: 'Kinetika', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.about-page__content {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-page__text {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-page__text:last-child {
+    margin-bottom: 0;
+}
+
+/* Страница поддержки */
+.support-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.support-page__title {
+    font-family: 'Kinetika', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.support-page__content {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.support-page__content p {
+    margin-bottom: 10px;
+}
+
+.support-page__content .label {
+    color: #999;
+    font-weight: 400;
+    margin-right: 5px;
+}
+
+.support-page__content .value {
+    color: #000;
+    font-weight: 400;
+}
+
+.support-page__content .value a {
+    color: #000;
+    text-decoration: underline;
+}
+
+.support-page__content .value a:hover {
+    color: #666;
+}

@@ -340,57 +340,20 @@ function logOrder(orderData) {
     return orderWithTimestamp.orderNumber;
 }
 
-// Генерация QR-кода через canvas
-function generateQRCode(element, text, size = 200) {
+// Вставка обычной картинки QR-кода
+function insertQRCode(element) {
+    if (!element) return;
+    
     element.innerHTML = '';
     
-    const canvas = document.createElement('canvas');
-    canvas.width = size;
-    canvas.height = size;
-    const ctx = canvas.getContext('2d');
+    const img = document.createElement('img');
+    img.src = 'https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg';
+    img.alt = 'QR-код для оплаты';
+    img.style.width = '100%';
+    img.style.height = 'auto';
+    img.style.borderRadius = '12px';
     
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, size, size);
-    
-    ctx.strokeStyle = '#000000';
-    ctx.lineWidth = 4;
-    ctx.strokeRect(10, 10, size - 20, size - 20);
-    
-    ctx.fillStyle = '#000000';
-    ctx.fillRect(15, 15, 40, 40);
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(20, 20, 30, 30);
-    ctx.fillStyle = '#000000';
-    ctx.fillRect(25, 25, 20, 20);
-    
-    ctx.fillStyle = '#000000';
-    ctx.fillRect(size - 55, 15, 40, 40);
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(size - 50, 20, 30, 30);
-    ctx.fillStyle = '#000000';
-    ctx.fillRect(size - 45, 25, 20, 20);
-    
-    ctx.fillStyle = '#000000';
-    ctx.fillRect(15, size - 55, 40, 40);
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(20, size - 50, 30, 30);
-    ctx.fillStyle = '#000000';
-    ctx.fillRect(25, size - 45, 20, 20);
-    
-    ctx.fillStyle = '#000000';
-    for (let i = 0; i < 400; i++) {
-        const x = 60 + Math.random() * (size - 120);
-        const y = 60 + Math.random() * (size - 120);
-        if (Math.random() > 0.6) {
-            ctx.fillRect(x, y, 3, 3);
-        }
-    }
-    
-    ctx.font = 'bold 14px Arial';
-    ctx.fillStyle = '#000000';
-    ctx.fillText('СБП', size/2 - 20, size/2 + 5);
-    
-    element.appendChild(canvas);
+    element.appendChild(img);
 }
 
 // Показать модальное окно с QR-кодом СБП
@@ -405,7 +368,7 @@ function showSbpQrCode(orderData) {
         <div class="sbp-qr-content">
             <button class="sbp-qr-close">&times;</button>
             <div class="sbp-qr-icon">Оплата через СБП</div>
-            <h3>Оплата через СБП</h3>
+            <h3>Система быстрых платежей</h3>
             <div class="sbp-qr-code" id="sbpQrCode"></div>
             <p class="sbp-qr-info">Отсканируйте QR-код в приложении любого банка</p>
             <div class="sbp-qr-details">
@@ -424,7 +387,7 @@ function showSbpQrCode(orderData) {
     
     const qrCodeDiv = document.getElementById('sbpQrCode');
     if (qrCodeDiv) {
-        generateQRCode(qrCodeDiv, `SBP_${orderData.orderNumber}_${orderData.totalAmount}`, 200);
+        insertQRCode(qrCodeDiv);
     }
     
     const closeBtn = qrContainer.querySelector('.sbp-qr-close');
@@ -1009,9 +972,12 @@ style.textContent = `
         margin: 20px 0;
     }
     
-    .sbp-qr-code canvas {
+    .sbp-qr-code img {
         border-radius: 12px;
         border: 1px solid #e0e0e0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        max-width: 200px;
+        height: auto;
     }
     
     .sbp-qr-info {
@@ -1059,6 +1025,7 @@ style.textContent = `
         font-size: 16px;
         cursor: pointer;
         width: 100%;
+        transition: background 0.3s;
     }
     
     .sbp-check-payment:hover {
@@ -1225,6 +1192,7 @@ style.textContent = `
         border: 1px solid #ddd;
         border-radius: 8px;
         cursor: pointer;
+        transition: all 0.2s;
     }
     
     .cart-payment-option:hover {
@@ -1252,6 +1220,7 @@ style.textContent = `
         font-size: 16px;
         font-weight: 600;
         cursor: pointer;
+        transition: background 0.3s;
     }
     
     .cart-submit:hover {

@@ -56,7 +56,7 @@ function initBurger() {
         }
     }
 }
-
+ 
 /* ========== АКТИВНАЯ ССЫЛКА В МЕНЮ ========== */
 function setActiveMenuLink() {
     const currentPath = window.location.pathname;
